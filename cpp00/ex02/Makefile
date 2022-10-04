@@ -4,7 +4,7 @@ CC = c++
 
 FLAG = -Wall -Wextra -Werror --std=c++98
 
-SRCS = main.cpp
+SRCS = Account.cpp test.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
