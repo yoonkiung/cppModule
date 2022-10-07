@@ -1,10 +1,10 @@
-NAME = account
+NAME = zombie
 
 CC = c++
 
 FLAG = -Wall -Wextra -Werror --std=c++98
 
-SRCS = Account.cpp test.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

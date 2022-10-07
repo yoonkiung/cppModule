@@ -1,10 +1,10 @@
-NAME = account
+NAME = brain
 
 CC = c++
 
 FLAG = -Wall -Wextra -Werror --std=c++98
 
-SRCS = Account.cpp test.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
