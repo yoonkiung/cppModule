@@ -21,7 +21,7 @@ Fixed::Fixed(const float val)
 
 Fixed::Fixed( const Fixed & src )
 {
-	this->value = src.getRawBits();
+	*this = src;
 }
 
 /*
