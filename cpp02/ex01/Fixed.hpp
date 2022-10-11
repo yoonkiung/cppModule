@@ -15,7 +15,6 @@ class Fixed
 		Fixed(const float val);
 
 		Fixed( Fixed const & src );
-		Fixed(const int val);
 		~Fixed();
 
 		Fixed &		operator=( Fixed const & rhs );
