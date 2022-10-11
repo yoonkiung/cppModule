@@ -12,6 +12,7 @@ class Fixed
 
 		Fixed();
 		Fixed( Fixed const & src );
+		Fixed(const int val);
 		~Fixed();
 
 		Fixed &		operator=( Fixed const & rhs );
