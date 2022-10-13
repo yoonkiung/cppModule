@@ -28,8 +28,8 @@ Character::Character( const Character & src )
 Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
-		delete _inventory[i];
-	// delete[] _inventory;
+		if (_inventory[i] != NULL)
+			delete _inventory[i];
 }
 
 /*
@@ -65,7 +65,7 @@ void Character::unequip(int idx)
 	if (_inventory[idx] == NULL)
 		std::cout << "the slot "
 				  << idx
-				  << " is empty" << std::endl;
+				  << " is already empty" << std::endl;
 	else
 		_inventory[idx] = NULL;
 }
@@ -74,6 +74,8 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx >= 4)
 		std::cout << "slot number error" << std::endl;
+	else if (_inventory[idx] == NULL)
+		std::cout << "slot is empty" << std::endl;
 	else
 		_inventory[idx]->use(target);
 }

@@ -1,15 +1,15 @@
-#include "MaterialSource.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MaterialSource::MaterialSource() : IMaterialSource()
+MateriaSource::MateriaSource() : IMateriaSource()
 {
 	std::memset(_inventory, 0, sizeof(_inventory));
 }
 
-MaterialSource::MaterialSource( const MaterialSource & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
 	std::memcpy(this->_inventory, src._inventory, sizeof(this->_inventory));
 }
@@ -19,17 +19,18 @@ MaterialSource::MaterialSource( const MaterialSource & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-MaterialSource::~MaterialSource()
+MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		delete _inventory[i];
+		if (_inventory[i] != NULL)
+			delete _inventory[i];
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-MaterialSource &				MaterialSource::operator=( MaterialSource const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -42,20 +43,22 @@ MaterialSource &				MaterialSource::operator=( MaterialSource const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void MaterialSource::learnMateria(AMateria *materia)
+void MateriaSource::learnMateria(AMateria *materia)
 {
 	int i;
 	for (i = 0; i < 4; i++)
 		if (_inventory[i] == NULL)
 			break;
 	if (i == 4)
+	{
 		std::cout << "inventory is full" << std::endl;
+		delete materia;
+	}
 	else
 		_inventory[i] = materia;
-	delete materia;
 }
 
-AMateria* MaterialSource::createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	AMateria *temp = NULL;
 
@@ -63,7 +66,7 @@ AMateria* MaterialSource::createMateria(std::string const & type)
 	{
 		if (_inventory[i] != NULL && type == _inventory[i]->getType())
 		{	
-			temp = _inventory[i];
+			temp = _inventory[i]->clone();
 			break;
 		}
 	}

@@ -15,8 +15,8 @@ int main()
                   << " " 
                   << std::endl; 
         
-        i->makeSound(); //will output the cat sound! j->makeSound();
-        
+        i->makeSound();
+        // const Animal animal();
         delete j;
         delete i;
     }

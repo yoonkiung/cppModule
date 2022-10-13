@@ -4,7 +4,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Cure : AMateria
+class Cure : public AMateria
 {
 
 	public:

@@ -2,9 +2,9 @@ NAME = a.out
 
 CC = c++
 
-FLAG = -Wall -Wextra -Werror --std=c++98
+FLAG = -Wall -Wextra -Werror --std=c++98 #-fsanitize=address -g3
 
-SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MaterialSource.cpp main.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
