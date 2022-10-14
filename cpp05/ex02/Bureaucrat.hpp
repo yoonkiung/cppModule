@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -34,6 +37,8 @@ class Bureaucrat
 
 		void increaseGrade();
 		void decreaseGrade();
+		void signForm(Form &form);
+		void executeForm(Form const & form);
 
 	private:
 		

@@ -54,7 +54,7 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
 	o << i.getName()
 	  << ", bureaucrat grade "
-	  << i.getGrade();
+	  << i.getGrade() << std::endl;
 	return o;
 }
 
@@ -101,6 +101,25 @@ void Bureaucrat::decreaseGrade()
 	}
 }
 
+void Bureaucrat::signForm(Form form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name
+				  << " signed "
+				  << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name
+				  << " couldn't sign "
+				  << form.getName()
+				  << " because "
+				  << e.what() << std::endl;
+	}
+	
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
