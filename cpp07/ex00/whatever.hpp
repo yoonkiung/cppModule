@@ -1,3 +1,6 @@
+#ifndef WHANEVER_HPP
+#define WHANEVER_HPP
+
 #include <iostream>
 
 template <typename T>
@@ -23,3 +26,5 @@ T& max(T &a, T &b)
         return (a);
     return (b);
 }
+
+#endif
