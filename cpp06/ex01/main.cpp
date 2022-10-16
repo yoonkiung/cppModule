@@ -18,11 +18,11 @@ int main()
 {
     {
         Data data;
-        uintptr_t ptrInt = serialize(&data);
-        Data *rollBackPtr = deserialize(ptrInt);
+        uintptr_t ptrLong = serialize(&data);
+        Data *rollBackPtr = deserialize(ptrLong);
 
         std::cout << &data << std::endl;
-        std::cout << ptrInt << std::endl;
+        std::cout << ptrLong << std::endl;
         std::cout << rollBackPtr << std::endl;
     }
     // std::cout << "***************************" << std::endl;
