@@ -12,14 +12,14 @@ void print(T &a)
 template <typename T>
 void add(T &a)
 {
-    a--;
+    a++;
 }
 
 template <typename T>
 void iter(T *a, int len, void (*f)(T &))
 {
-    while (len--)
-        f(a[len]);
+    for (int i = 0; i < len; i++)
+        f(a[i]);
 }
 
 #endif

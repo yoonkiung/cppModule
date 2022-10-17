@@ -70,7 +70,8 @@
 		"concepts": "cpp",
 		"variant": "cpp",
 		"filesystem": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"list": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

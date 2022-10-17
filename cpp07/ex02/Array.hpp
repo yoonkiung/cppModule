@@ -34,7 +34,7 @@ class Array
 			{
 				this->_n = rhs._n;
 				this->_arr = new T[_n];
-				for (int i = 0; i < _n; i++)
+				for (unsigned int i = 0; i < _n; i++)
 					this->_arr[i] = rhs._arr[i];
 			}
 			return *this;
