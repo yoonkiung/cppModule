@@ -41,61 +41,37 @@ int str_to_int(std::string level)
 
 void Harl::filter(std::string level)
 {
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
                                 &Harl::error};
-	
-	int i;
-	for (i = 0; i < 4; i++) {
-        if (levels[i] == level)
-		{
-			for (int j = i; j < 4; j++)
-			{
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*f[j])();
-				std::cout << std::endl;
-			}
-			break ;
-		}
-    }
+	int lev = str_to_int(level);
 
-	if (i == 4)
+	switch (lev)
+	{
+	case 0:
+		std::cout << "[ DEBUG ]" << std::endl;
+		(this->*f[0])();
+		std::cout << std::endl;
+	
+	case 1:
+		std::cout << "[ INFO ]" << std::endl;
+		(this->*f[1])();
+		std::cout << std::endl;
+
+	case 2:
+		std::cout << "[ WARNING ]" << std::endl;
+		(this->*f[2])();
+		std::cout << std::endl;
+
+	case 3:
+		std::cout << "[ ERROR ]" << std::endl;
+		(this->*f[3])();
+		std::cout << std::endl;
+		break;
+
+	case -1:
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	
+	default:
+		break;
+	}
 }
-
-// void Harl::filter(std::string level)
-// {
-// 	void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
-//                                 &Harl::error};
-// 	int lev = str_to_int(level);
-
-// 	switch (lev)
-// 	{
-// 	case 0:
-// 		std::cout << "[ DEBUG ]" << std::endl;
-// 		(this->*f[0])();
-// 		std::cout << std::endl;
-	
-// 	case 1:
-// 		std::cout << "[ INFO ]" << std::endl;
-// 		(this->*f[1])();
-// 		std::cout << std::endl;
-
-// 	case 2:
-// 		std::cout << "[ WARNING ]" << std::endl;
-// 		(this->*f[2])();
-// 		std::cout << std::endl;
-
-// 	case 3:
-// 		std::cout << "[ ERROR ]" << std::endl;
-// 		(this->*f[3])();
-// 		std::cout << std::endl;
-// 		break;
-
-// 	case -1:
-// 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	
-// 	default:
-// 		break;
-// 	}
-// }

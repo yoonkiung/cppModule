@@ -2,9 +2,9 @@ NAME = a.out
 
 CC = c++
 
-FLAG = -Wall -Wextra -Werror --std=c++98
+FLAG = -Wall -Wextra -Werror --std=c++98 -fsanitize=address -g3
 
-SRCS = main.cpp Base.cpp
+SRCS = main.cpp Span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
